@@ -22,7 +22,6 @@ const LinkSearch = (props) => {
   }, []);
   
 
-
   const acceptLinkId = (e) => {
     console.log(e.target.value);
     if(validator.isURL(e.target.value) && e.target.value !=="" ){
@@ -38,8 +37,33 @@ const LinkSearch = (props) => {
   const shortenLink = (e) => {
     e.preventDefault();
     console.log(e.target.value);
-    // navigate(-1);
+    console.log(link);
+  
+    if (link) { 
+      sendData();
+    }
   };
+
+
+  const sendData = () => {
+    fetch('http://localhost:8000/minify', {
+      method: "POST",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({ link }) 
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        setMessage(result.message);
+      })
+      .catch((error) => {
+        console.log(error); 
+      });
+  };
+  
+  
 
   return (
     <div>
