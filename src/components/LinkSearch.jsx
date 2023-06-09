@@ -5,6 +5,7 @@ import validator from 'validator';
 import {  Routes,  Route,  Link} from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { FaCopy } from "react-icons/fa";
 
 const LinkSearch = (props) => {
   const [link, setLink] = useState("");
@@ -30,6 +31,7 @@ const LinkSearch = (props) => {
       setErrorMessage("Please Set to a valid URL!");
     }else{
       setErrorMessage("");
+      setMessage("");
     }
     setLink(e.target.value);
   };
@@ -77,7 +79,7 @@ const LinkSearch = (props) => {
         </div>
         <p><small>{errorMessage}</small></p>
       </form>
-    <p>Other message : <a href="{message}">{message}</a>   </p>
+    <p>Other message : <a href="{message}">{message}</a> <FaCopy onClick={() => {navigator.clipboard.writeText(message)}}/> </p>
     </div>
     
   );
