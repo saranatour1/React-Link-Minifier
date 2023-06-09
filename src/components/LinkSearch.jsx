@@ -77,7 +77,7 @@ const LinkSearch = (props) => {
         </div>
         <p><small>{errorMessage}</small></p>
       </form>
-    <p>Other message : {message} </p>
+    <p>Other message : {message}  </p>
     </div>
     
   );
