@@ -4,6 +4,11 @@ const app = express();
 const port = 8000;
 const knex = require("knex");
 
+const { randomUUID } = require('crypto'); // Added in: node v14.17.0
+
+
+// uuidv4.parse("hello");
+
 const bodyParser = require("body-parser"); 
 
 
@@ -52,15 +57,39 @@ app.get("/", (req, res) => {
 app.post("/minify" , (req, res)=> {
   console.log(req.body);
   const link = req.body.link;
+  shorten(link);
+  
   console.log(link);
   res.json({ message: link });
 });
 
 
 
+const shorten = (link) => {
+  console.log(randomUUID());
+  if (link.match(/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/)) {
+    db.transaction((trx) => {
+      trx
+        .insert({
+          link_text: randomUUID(),
+          url_long: link,
+        })
+        .into("urls")
+        .then((response) => {
+          console.log("Link inserted into the database:", response);
+          trx.commit(); 
+        })
+        .catch((error) => {
+          console.error("Error inserting link into the database:", error);
+          trx.rollback(); 
+        });
+    });
+  }
+};
 
 
-  
+
 
 // this needs to be below the other code blocks
 app.listen( port, () => console.log(`Listening on port: ${port}`) );
+
