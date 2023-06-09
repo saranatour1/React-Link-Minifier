@@ -1,0 +1,55 @@
+#fork-corner {
+  z-index: 105;
+}
+
+.fork-corner.fc-pos-tl.fc-animate-grow{
+  transition: 0.5s;
+}
+
+.fork-corner.fc-size-small.fc-pos-tl {
+  top: 12.5px;
+  left: 12.5px;
+  position: absolute;
+}
+
+.fork-corner.fc-theme-github {
+  text-decoration: none;
+}
+
+a, a:visited {
+  color: var(--c-main);
+}
+
+.fork-corner.fc-size-small.fc-pos-tl+div {
+  top: -75px;
+  left: -75px;
+  position: absolute;
+}
+
+.fork-corner.fc-theme-github+div {
+  background-color: #181717;
+}
+
+.fork-corner.fc-pos-tl+div {
+  top: -100px;
+  left: -100px;
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+.fork-corner.fc-size-small+div {
+  width: 150px;
+  height: 150px;
+}
+
+.fork-corner+div {
+  width: 150px;
+  height: 150px;
+  z-index: 100;
+}
+
+.ix{
+font-size: 30px;
+color:  #001b44;
+
+}

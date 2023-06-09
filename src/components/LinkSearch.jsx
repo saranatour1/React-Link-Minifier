@@ -71,15 +71,15 @@ const LinkSearch = (props) => {
     <div>
       <form action="/minify" method="post">
         <div>
-            <label htmlFor="link" >
+            <label htmlFor="link"  className="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
             Post Your Link here: 
             </label>
-            <input type="search" id="link" onChange={(e)=> acceptLinkId(e)} />
-            <button type="submit" onClick ={(e) => shortenLink(e)}> Submit</button>
+            <input type="search" id="helper-text" aria-describedby="helper-text-explanation" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="http://Example.com/wee" onChange={(e)=> acceptLinkId(e)} />
+            <button type="submit" className=" mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick ={(e) => shortenLink(e)}> Submit</button>
         </div>
-        <p><small>{errorMessage}</small></p>
+        <p><small className="text-xs text-gray-900 dark:text-white">{errorMessage}</small></p>
       </form>
-    <p>Other message : <a href="{message}">{message}</a> <FaCopy onClick={() => {navigator.clipboard.writeText(message)}}/> </p>
+    <p>Other message : <a href="{message}">{message}</a>  <button className="" onClick={() => {navigator.clipboard.writeText(message)}}> <FaCopy/> </button>  </p>
     </div>
     
   );
