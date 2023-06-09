@@ -60,7 +60,7 @@ app.post("/minify", (req, res) => {
   shorten(link)
     .then((shortedLink) => {
       console.log(shortedLink);
-      res.json({ message: `https://localhost:8000/${shortedLink.link_text}` });
+      res.json({ message: `http://localhost:8000/${shortedLink.link_text}` });
     })
     .catch((error) => {
       console.error("Error shortening link:", error);
@@ -118,7 +118,6 @@ const shorten = (link) => {
   });
 };
 
-
 const getLinkFromId = (linkId) => {
   return db.select("link_text")
     .from("urls")
@@ -131,10 +130,6 @@ const getLinkFromId = (linkId) => {
       throw error; 
     });
 };
-
-
-
-
 
 // this needs to be below the other code blocks
 app.listen( port, () => console.log(`Listening on port: ${port}`) );

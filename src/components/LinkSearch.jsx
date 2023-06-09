@@ -77,14 +77,12 @@ const LinkSearch = (props) => {
         </div>
         <p><small>{errorMessage}</small></p>
       </form>
-    <p>Other message : {message}  </p>
+    <p>Other message : <a href="{message}">{message}</a>   </p>
     </div>
     
   );
 };
 
-LinkSearch.propTypes = {
-  // Define prop types here
-};
+
 
 export default LinkSearch;
