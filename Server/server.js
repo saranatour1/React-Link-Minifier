@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const express = require("express");
 const cors = require("cors");
 const app = express();
@@ -12,6 +13,7 @@ const DATABASE_URL = process.env.DATABASE_URL; // "239482"
 const PGDATABASE = process.env.PGDATABASE; // "foobar"
 const PGHOST = process.env.PGHOST; // "development"
 const PGPASSWORD = process.env.PGPASSWORD; // "development"
+// eslint-disable-next-line no-unused-vars
 const PGPORT = process.env.PGPORT;
 const PGUSER = process.env.PGUSER;
 
@@ -78,6 +80,7 @@ const shorten = (link) => {
   return new Promise((resolve, reject) => {
     if (
       link.match(
+        // eslint-disable-next-line no-useless-escape
         /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/
       )
     ) {

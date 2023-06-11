@@ -1,6 +1,5 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// eslint-disable-next-line no-unused-vars
+import React from 'react';
 import './App.css'
 import LinkSearch from './components/LinkSearch'
 import SideBar from './components/SideBar'
